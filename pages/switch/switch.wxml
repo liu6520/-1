@@ -1,0 +1,68 @@
+<!-- 总 -->
+<view class='switch-box'>
+<!-- 1 -->
+    <view class='swich1'>
+        <view class='switch1-box'>
+            <view class='switch1-left'>
+                <image class='switch-icon' src='/imges/switch.png'></image>
+                <text class='switch-name'>即时控制</text>
+            </view>
+            <switch class='switch1' bindchange="switch1Change" color="#3b82eb" bindtap='ofswitch1'/>
+        </view>
+        <view class='time'>
+            <view class='time-tit'>已开始</view>
+            <view class='time-num'>
+              {{h1}}小时{{m1}}分钟{{s1}}秒
+            </view>
+        </view>
+    </view>
+    <!-- 时间选择 -->
+    <view class="swich2">
+         <view class='switch1-box'>
+            <view class='switch1-left'>
+                <image class='switch-icon' src='/imges/switch.png'></image>
+                <text class='switch-name'>时间选择</text>
+            </view>
+            <view class='picker-box'>
+                <picker mode="time" value="{{time}}" start="00:00" end="24:00" bindchange="bindTimeChange1">
+                  <view class="picker">
+                    {{time1}}
+                  </view>
+                </picker>
+                <text>—</text>
+                <picker mode="time" value="{{time}}" start="00:00" end="24:00" bindchange="bindTimeChange2">
+                  <view class="picker">
+                    {{time2}}
+                  </view>
+                </picker>
+            </view> 
+            <switch class='switch1' bindchange="switch2Change" color="#3b82eb" bindtap='ofswitch2'/>
+        </view>
+        <view class='time'>
+            <view class='time-tit'>已开始</view>
+            <view class='time-num'>
+              {{h2}}小时{{m2}}分钟{{s2}}秒
+            </view>
+        </view>
+    </view>
+    <!-- 流量控制 -->
+    <view class='swich3'>
+        <view class='switch1-box'>
+            <view class='switch1-left'>
+                <image class='switch-icon' src='/imges/switch.png'></image>
+                <text class='switch-name'>流量控制</text>
+            </view>
+            <view class='switch-num-box'>
+                <input type='number' class='switch-num' maxlength='3'/>
+                <text class='switch-num-tit'>单位:L/h</text>
+            </view>
+            <switch class='switch1' bindchange="switch3Change" color="#3b82eb" bindtap='ofswitch3'/>
+        </view>
+        <view class='time'>
+            <view class='time-tit'>已开始</view>
+            <view class='time-num'>
+              {{h3}}小时{{m3}}分钟{{s3}}秒
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,23 @@
+<view class='percenter-box'>
+    <!-- 我的个人信息 -->
+    <view class='my-info'>
+        <view class='my-info-up'>
+            <view class='my-info-pic-box'>
+                  <image class='my-info-pic' src='{{myInfopicurl}}'></image>
+            </view>
+            <view class='my-info-name-box' bindtap='tabbar1'>
+                  <view class='my-info-name'>
+                      <text class='myInfoame'>{{myInfoname}}</text>
+                      <text class='my-info-name-text'>152******950</text>
+                  </view>
+                  <view>
+                    <image class='my-info-name-pic' src='/imges/icon-right.png'></image>
+                  </view>
+            </view>  
+        </view>
+    </view>
+    <!-- 退出登录 -->
+    <view class='srlogin-box'>
+      <button class='srlogin' bindtap='clearStorageSync'>注销</button>
+    </view>
+</view>

@@ -1,0 +1,24 @@
+<view class='footer'>
+    <view class='table' bindtap='selected1' data-index='1'>
+        <image src="{{selected1 ? footerurl1_1 : footerurl1}}" class='table-pic'></image>
+        <text class="{{selected1 ? 'red' : 'the'}}">首页</text>
+    </view>
+    <view class='table' bindtap='selected2' data-index='2'>
+        <image src="{{selected2 ? footerurl2_1 : footerurl2}}" class='table-pic'></image>
+        <text class="{{selected2 ? 'red' : 'the'}}">分类</text>
+    </view>
+    <view class='table' bindtap='selected3' data-index='3'>
+        <view class='shopcat'>
+            <image src="{{selected3 ? footerurl3_1 : footerurl3}}" class='table-pic'></image>
+            <view class='num-box'>
+                <text class='num'>99</text>
+            </view>
+        </view>
+        
+        <text class="{{selected3 ? 'red' : 'the'}}">购物车</text>
+    </view>
+    <view class='table'  bindtap='selected4' data-index='4'>
+        <image src="{{selected4 ? footerurl4_1 : footerurl4}}" class='table-pic'></image>
+        <text class="{{selected4 ? 'red' : 'the'}}">个人中心</text>
+    </view>
+</view> 

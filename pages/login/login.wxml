@@ -1,0 +1,79 @@
+<!-- 登录、注册盒子 -->
+<view class='inbox'>
+    <!-- 图片 -->
+    <view class='login-background-pic'>
+       <image src='/imges/login-background-img.png'></image>
+    </view>
+    <!-- 登录注册切换 -->
+    <view class='logintab-box'>
+        <view class="logintab {{or1 ? 'red' : 'hui'}}" bindtap='or1'>登录</view>
+        <view class="logintab {{or2 ? 'red' : 'hui'}}" bindtap='or2'>注册</view>
+    </view>
+    <!-- 登录 注册-->
+     <view class='form'>
+        <!-- 登录 -->
+        <view class="login-form {{or1 ? 'block' : 'none'}}">
+            <view class='form-list'>
+                <view class='form-list-icon'>
+                    <image src='/imges/login-man.png'></image>
+                </view>
+                <view class='form-input'>
+                    <input placeholder='输入用户名' bindinput='logininput1Fn' maxlength='11'></input>
+                </view> 
+            </view>
+            <view class='form-list'>
+                <view class='form-list-icon'>
+                    <image src='/imges/login-lock.png'></image>
+                </view>
+                <view class='form-input'>
+                    <input placeholder='输入密码' bindinput='logininput2Fn' type='password' maxlength='15'></input>
+                </view> 
+            </view>
+            <text class='forget-password'>忘记密码？</text>
+            <button class='login-button' bindtap='loginFn'>登录</button>
+        </view>
+        <!-- 注册 -->
+        <view class="register-form {{or2 ? 'block' : 'none'}}">
+            <view class='form-list list-code'>
+                <view class='form-list-icon'>
+                    <image src='/imges/login-tel.png'></image>
+                </view>
+                <view class='form-input'>
+                    <input placeholder='输入手机号码' value="{{ueartel}}" maxlength='11' bindinput='usertelFn'></input>
+                </view>
+                <view class="code {{cokecheck ? 'code-ture' : 'code-false'}}" bindtap='getcokefn'>
+                    {{codetext}}
+                </view> 
+            </view>
+            <view class='form-list'>
+                <view class='form-list-icon'>
+                    <image src='/imges/login-code.png'></image>
+                </view>
+                <view class='form-input'>
+                    <input placeholder='输入验证码' bindinput='registerinput2Fn'></input>
+                </view> 
+            </view>
+            <view class='form-list'>
+                <view class='form-list-icon'>
+                    <image src='/imges/login-lock.png'></image>
+                </view>
+                <view class='form-input'>
+                    <input placeholder='输入密码' bindinput='registerinput3Fn' maxlength='15' type='password'></input>
+                </view> 
+            </view>
+            <view class='form-list'>
+                <view class='form-list-icon'>
+                    <image src='/imges/login-lock.png'></image>
+                </view>
+                <view class='form-input'>
+                    <input placeholder='确认密码' bindinput='registerinput4Fn' maxlength='15' type='password'></input>
+                </view> 
+            </view>
+            <view class='tips-box'>
+                <text class='forget-password'>忘记密码？</text>
+                <text class='tips'>请设置6-15位密码</text>
+            </view> 
+            <button class='login-button' bindtap='registerFn'>马上注册</button>
+        </view>
+     </view>
+</view>

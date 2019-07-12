@@ -1,0 +1,39 @@
+<!-- 设置 -->
+ <view class='fit-box'>
+    <view class="{{!show ? 'thebox' : 'none'}}">
+      <!-- 温度 -->
+      <view class="wendu-box" wx:for="{{wendu}}" wx:for-item="wd" wx:key="">
+          <view class='tit'>{{wd.PeripheralTitle}}</view>
+          <view class='wendu-content'>
+              <view class='wendu-content-box'>
+                  <text class='wendu-num'>{{wd.num}}℃</text>
+              </view>
+          </view>
+      </view>
+    <!-- 控制开关 -->
+      <view class='shebei-box'>
+          <view class='tit'>首部控制</view>
+          <view class='shebei' wx:for="{{shebeiname}}" wx:for-item="sbn"  wx:key="">
+              <view class='shebei-left'>
+                  <image class='shebei-icon' src='/imges/switch.png'></image>
+                  <text class='shebei-name'>{{sbn.PeripheralTitle}}</text>
+              </view>
+              <switch class='shebei-switch' bindchange="switch2Change" color="#3b82eb"/>
+          </view>
+      </view>
+
+      <view class='shebei-box'>
+          <view class='tit'>水泵控制</view>
+          <view class='shebei' wx:for="{{shuibeng}}" wx:for-item="shui"  wx:key="" bindtap='goto'data-index="{{index}}">
+              <view class='shebei-left'>
+                  <image class='shebei-icon' src='/imges/switch.png'></image>
+                  <text class='shebei-name'>{{shui.PeripheralTitle}}</text>
+              </view>
+              <image class='icon-right' src='/imges/icon-right.png'></image>
+          </view>
+      </view>
+    </view> 
+
+    <!-- 暂无数据 -->
+    <view class="{{show ? 'none-box' :'none'}}">暂无数据</view>
+ </view>

@@ -1,0 +1,89 @@
+/* pages/percenter/percenter.wxss */
+.percenter-box{
+  width: 100%;
+  background: #fff;
+}
+/* 我的个人信息 */
+.my-info{
+  width: 100%;
+}
+.my-info-up{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14.04rpx 32.76rpx 9.36rpx 32.76rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.my-info-pic-box{
+  width: 131.04rpx;
+  height: 131.04rpx;
+  border: 2.34rpx solid #eeeeee;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.my-info-name-box{
+  width: 526.5rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.my-info-pic{
+  width: 100%;
+  height: 131.04rpx;
+  border-radius: 50%;
+}
+.my-info-name{
+  width: 421.2rpx;
+}
+.myInfoname{
+  color: #000;
+  font-size: 32.76rpx;
+  font-weight: 600;
+}
+.my-info-name-text{
+  display: block;
+  font-size: 28.08rpx;
+  color: #999999;
+  padding-top: 11.7rpx;
+}
+.my-info-name-pic{
+  width: 48rpx;
+  height:48rpx;
+}
+.my-info-bottom{
+  width: 100%;
+  border-top:1.17rpx solid #e4e4e4;
+  display: flex;
+}
+.my-info-money{
+  width: 259.74rpx;
+  height: 114.66rpx;
+}
+.my-info-money-num{
+  font-size: 36rpx;
+  color:red;
+  padding-top: 10rpx;
+  text-align: center;
+}
+.my-info-money-text{
+  font-size: 24rpx;
+  color: #666666;
+  text-align: center;
+  padding-top: 7rpx;
+}
+.my-info-money:nth-child(2){
+  width: 224.64rpx;
+  border-right: 1.17rpx solid #ccc;
+  border-left: 1.17rpx solid #ccc;
+}
+/* 分割线 */
+.percenter-line{
+  width: 100%;
+  height: 16rpx;
+  background-color: #efeff4;
+  border-bottom: 1.17rpx solid #dddde2;
+  border-top: 1.17rpx solid #dddde2;
+}
+
+

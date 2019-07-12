@@ -1,0 +1,23 @@
+<view class='classifly-box'>
+     <view class='back'>
+        <view class='time'>{{y}}年{{m}}月{{d}}日</view>
+     </view>
+
+     <!-- 控制开关 -->
+    <view class="{{(show ==true) ? 'shebei-box' : 'none'}}" wx:for="{{shebei}}" wx:for-item="sb" wx:key="">
+        <view class='tit'>{{sb.name}}</view>
+        <view class='shebei' wx:for="{{shebeiname}}" wx:for-item="sbn"  wx:key="">
+            <view class='shebei-left'>
+                <image class='shebei-icon' src='/imges/switch.png'></image>
+                <text class='shebei-name'>{{sbn.name}}</text>
+            </view>
+            <switch class='shebei-switch' bindchange="switch2Change" color="#3b82eb"/>
+        </view>
+    </view>
+
+     <!-- 登录 -->
+      <view class="{{(show==false) ? 'login-box' : 'none'}}">
+          <view class='login-tit'>还没有登录？快去登录吧</view>
+          <button class='login-url' bindtap='login'>登录</button>
+      </view>
+</view>

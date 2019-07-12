@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/switch/switch",
+    "pages/fit/fit",
+    "pages/logs/logs",
+    "pages/classifly/classifly",
+    "pages/percenter/percenter"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#bababa",
+    "selectedColor": "#3b82eb",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/imges/footer1.png",
+        "selectedIconPath": "/imges/footer1-1.png"
+      },
+      {
+        "pagePath": "pages/classifly/classifly",
+        "text": "控制",
+        "iconPath": "/imges/footer2.png",
+        "selectedIconPath": "/imges/footer2-1.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "其他",
+        "iconPath": "/imges/footer3.png",
+        "selectedIconPath": "/imges/footer3-1.png"
+      },
+      {
+        "pagePath": "pages/percenter/percenter",
+        "text": "我的",
+        "iconPath": "/imges/footer4.png",
+        "selectedIconPath": "/imges/footer4-1.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

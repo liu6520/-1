@@ -1,0 +1,25 @@
+<!--pages/coc/coc.wxml-->
+<view class='index-box'>
+   <!-- 外设 -->
+   <view class='waishe'>
+      <view class='box1'>
+          <image src='/imges/header_bg2.jpg' class='box-img'></image>
+          <view class='box-tit'>我的外设</view>
+      </view>
+      
+      <view class="{{(show ==true) ? 'box2' : 'none'}}">
+          <view class='xq-box' wx:for="{{xqbox}}"  wx:key="">
+              <view class='xq-cont-box' bindtap='gotoshebei' data-id='{{item.id}}'>
+                  <view class='xq-name'>{{item.title}}</view>
+                  <view class='xq-set'>{{item.online}}</view>
+              </view>
+          </view>
+      </view>
+
+      <!-- 登录 -->
+      <view class="{{(show==false) ? 'login-box' : 'none'}}">
+          <view class='login-tit'>还没有登录？快去登录吧</view>
+          <button class='login-url' bindtap='login'>登录</button>
+      </view>
+   </view>
+</view>

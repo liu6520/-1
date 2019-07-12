@@ -1,0 +1,83 @@
+/* 总 */
+.switch-box{
+  width: 100%;
+}
+/* 1 */
+.switch1-box{
+  width: 100%;
+  height: 100rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+.switch1-left{
+  width: 200rpx;
+  display: flex;
+  align-items: center;
+}
+.switch-icon{
+  width: 48rpx;
+  height: 48rpx;
+}
+.switch-name{
+  font-size: 30rpx;
+  padding-left: 20rpx;
+}
+.switch1{
+  zoom: 0.7;
+}
+/* 计时器 */
+.time{
+  width: 100%;
+  height: 300rpx;
+  background-color: #3b82eb;
+}
+.time-tit{
+  font-size: 34rpx;
+  font-family: "微软雅黑";
+  color: #fff;
+  letter-spacing: 0.2em;
+  text-align: center;
+  padding-top: 30rpx;
+}
+.time-num{
+  font-size: 40rpx;
+  color: #fff;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding-top: 70rpx;
+}
+
+/* 时间选择 */
+.picker-box{
+  padding-left: 50rpx;
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.picker{
+  border: 1rpx solid #ccc;
+}
+
+/* 流量控制 */
+.switch-num-box{
+  padding-left: 80rpx;
+  display: -webkit-flex;
+  align-items: center;
+}
+.switch-num{
+  width: 80rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  border: 1rpx solid #ccc;
+  padding-left: 24rpx;
+}
+.switch-num-tit{
+  font-size: 24rpx;
+  letter-spacing: 0.2em;
+  padding-left: 10rpx;
+}

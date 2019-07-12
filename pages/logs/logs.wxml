@@ -1,0 +1,14 @@
+<view class='logs-box'>
+ <!-- 登录跳转 -->
+   <view class="{{show ? 'userid-box' : 'none'}}">
+       <view class='userid'>
+          <view class='userid-text'>立即登录</view>
+          <view class='userid-url'>
+                <text bindtap='none'>取消</text>
+                <text style='border-left:1rpx solid #757575;color:#40affe;' bindtap='login'>登录</text>
+          </view> 
+       </view>
+   </view> 
+   <!-- 外设 -->
+   <image src='/imges/f6.jpg' class='img'></image>
+</view>
