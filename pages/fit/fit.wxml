@@ -1,5 +1,5 @@
 <!-- 设置 -->
- <view class='fit-box'>
+ <view class="{{hidden ? 'fit-box' : 'none'}}">
     <view class="{{!show ? 'thebox' : 'none'}}">
       <!-- 温度 -->
       <view class="wendu-box" wx:for="{{wendu}}" wx:for-item="wd" wx:key="">
@@ -15,25 +15,36 @@
           <view class='tit'>首部控制</view>
           <view class='shebei' wx:for="{{shebeiname}}" wx:for-item="sbn"  wx:key="">
               <view class='shebei-left'>
-                  <image class='shebei-icon' src='/imges/switch.png'></image>
+                  <image class='shebei-icon' src='/imges/switch1.png'></image>
                   <text class='shebei-name'>{{sbn.PeripheralTitle}}</text>
               </view>
-              <switch class='shebei-switch' bindchange="switch2Change" color="#3b82eb"/>
+             <view class='switchto' bindtap='goto' data-port='{{sbn.PeripheralPort}}' data-tit='{{sbn.PeripheralTitle}}' data-index='{{index}}' data-value='{{sbn.value}}' data-ctrltype='{{sbn.PeripheralID}}' data-moindex='{{sbn.moindex}}'>
+                  <text class="{{sbn.value ? 'green' : 'c'}}">{{sbn.value ? "已开启" : "未开启"}}</text>
+                  <image src='/imges/icon-right1.png'></image>
+              </view>
           </view>
       </view>
 
       <view class='shebei-box'>
-          <view class='tit'>水泵控制</view>
-          <view class='shebei' wx:for="{{shuibeng}}" wx:for-item="shui"  wx:key="" bindtap='goto'data-index="{{index}}">
+          <view class='tit'>电磁阀控制</view>
+          <view class='shebei' wx:for="{{shuibeng}}" wx:for-item="shui"  wx:key="" data-index="{{index}}">
               <view class='shebei-left'>
-                  <image class='shebei-icon' src='/imges/switch.png'></image>
+                  <image class='shebei-icon' src='/imges/switch1.png'></image>
                   <text class='shebei-name'>{{shui.PeripheralTitle}}</text>
               </view>
-              <image class='icon-right' src='/imges/icon-right.png'></image>
+             <view class='switchto' bindtap='goto' data-port='{{shui.PeripheralPort}}' data-tit='{{shui.PeripheralTitle}}' data-index='{{index}}' data-value='{{shui.value}}' data-ctrltype='{{shui.PeripheralID}}'>
+                  <text class="{{shui.value ? 'green' : 'c'}}">{{shui.value ? "已开启" : "未开启"}}</text>
+                  <image src='/imges/icon-right1.png'></image>
+              </view>
           </view>
       </view>
     </view> 
 
     <!-- 暂无数据 -->
     <view class="{{show ? 'none-box' :'none'}}">暂无数据</view>
+    <!-- 加载 -->
+   
  </view>
+ <loading hidden="{{hidden}}">
+        加载中...
+ </loading>

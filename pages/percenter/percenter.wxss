@@ -85,5 +85,13 @@
   border-bottom: 1.17rpx solid #dddde2;
   border-top: 1.17rpx solid #dddde2;
 }
-
-
+/* 注销登录 */
+.srlogin-box{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30rpx;
+}
+.srlogin-box button{
+  background: #3b82eb;
+  color: #fff;
+}

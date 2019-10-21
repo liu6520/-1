@@ -8,15 +8,12 @@ Page({
   data: {
     myInfopicurl:"/imges/my-info-pic.png",
     myInfoname:"小川UU",
-    moneynum1:'0.00',
-    moneynum2:'0.00',
-    moneynum3:0
   },
-  tabbar1: function (){
-    wx.navigateTo({
-      url: '/pages/fit/fit'
-    })
-  },
+  // tabbar1: function (){
+  //   wx.navigateTo({
+  //     url: '/pages/fit/fit'
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -34,24 +31,29 @@ Page({
     })
   },
   // 清除数据
-  // clearStorageSync:function(){
-  //   wx.removeStorageSync('userid');
-  //   wx.removeStorageSync('loginToken');
-  //   wx.removeStorageSync('devID');
-  //   console.log(app.globalData.userid)
-  //   console.log(app.globalData.loginToken)
-  //   console.log(app.globalData.devID)
-  //   var pages = getCurrentPages();//当前页面
-  //   if (pages.length > 1) {
-  //     var beforePage = pages[pages.length - 2];//获取上一个页面实例对象
-  //     beforePage.changeData();//触发父页面中的方法
-  //   }
-  //   setTimeout(function () {
-  //     wx.reLaunch({
-  //       url: '/pages/index/index',
-  //     })
-  //   }, 1000)
-  // },
+  clearStorageSync:function(){
+    wx.removeStorageSync('userid');
+    wx.removeStorageSync('loginToken');
+    wx.removeStorageSync('devID');
+    console.log(app.globalData.userid)
+    console.log(app.globalData.loginToken)
+    console.log(app.globalData.devID)
+    var pages = getCurrentPages();//当前页面
+    if (pages.length > 1) {
+      var beforePage = pages[pages.length - 2];//获取上一个页面实例对象
+      beforePage.changeData();//触发父页面中的方法
+    }
+    setTimeout(function () {
+      wx.reLaunch({
+        url: '/pages/index/index',
+      })
+    }, 1000)
+    wx.showToast({
+      title: "注销成功",
+      icon: 'none',
+      duration: 2000
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

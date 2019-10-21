@@ -1,83 +1,141 @@
 /* 总 */
+page{
+  width:100%;
+  height: 100%;
+}
 .switch-box{
   width: 100%;
+  height: 100%;
+  font-size: 0;
+  position: relative;
 }
-/* 1 */
-.switch1-box{
+.none{
+  display: none;
+}
+.show{
+  display: block;
+}
+.switch-bg{
   width: 100%;
-  height: 100rpx;
-  box-sizing: border-box;
-  padding: 0 30rpx;
-  display: -webkit-flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
+  height: 100%;
+  background: #029dff;
 }
-.switch1-left{
-  width: 200rpx;
+.box1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  color: #fff;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+}
+.title text{
+  font-size: 50rpx;
+  color: #fff;
+}
+.box2{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+}
+.text{
+  padding-left: 32rpx;
+  font-size: 32rpx;
+  color: #fff;
+}
+.switch{
+  width: 100%;
   display: flex;
   align-items: center;
+  padding-top: 60rpx;
+}
+.coc{
+  width: 33%;
+}
+.switch-tit{
+  font-size: 30rpx;
+  color: #fff;
+  text-align: center;
+  padding-bottom: 30rpx;
 }
 .switch-icon{
   width: 48rpx;
   height: 48rpx;
+  display: block;
+  margin: 0 auto;
 }
-.switch-name{
-  font-size: 30rpx;
-  padding-left: 20rpx;
+.coc1{
+  width: 34%;
 }
-.switch1{
-  zoom: 0.7;
+.coc1 image{
+  width:72rpx;
+  height: 72rpx;
 }
-/* 计时器 */
-.time{
-  width: 100%;
-  height: 300rpx;
-  background-color: #3b82eb;
-}
-.time-tit{
-  font-size: 34rpx;
-  font-family: "微软雅黑";
-  color: #fff;
-  letter-spacing: 0.2em;
-  text-align: center;
-  padding-top: 30rpx;
-}
-.time-num{
-  font-size: 40rpx;
-  color: #fff;
-  letter-spacing: 0.1em;
-  text-align: center;
-  padding-top: 70rpx;
+.coc2{
+  padding-top: 40rpx;
 }
 
-/* 时间选择 */
-.picker-box{
-  padding-left: 50rpx;
+
+.time-box{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+.time-radio{
+  width: 100%;
+  position: fixed;
+  bottom: 0;left: 0;
+  background: #fff;
+}
+.radio-box{
+  width: 100%;
+  border-top: 1px solid #ddd;
+  box-sizing: border-box;
+  padding: 10px;
   display: -webkit-flex;
   justify-content: space-between;
   align-items: center;
 }
-.picker{
-  border: 1rpx solid #ccc;
+.radio-tit{
+  font-size: 32rpx;
+  color: #333;
+}
+.radio-pic{
+  width: 48rpx;
+  height: 48rpx;
 }
 
-/* 流量控制 */
-.switch-num-box{
-  padding-left: 80rpx;
-  display: -webkit-flex;
-  align-items: center;
+.hidden{
+  width: 100%;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #333;
+  border-top: 1rpx solid #ddd;
 }
-.switch-num{
-  width: 80rpx;
-  height: 60rpx;
-  line-height: 60rpx;
-  font-size: 24rpx;
-  border: 1rpx solid #ccc;
-  padding-left: 24rpx;
+
+/* 加载动画 */
+.weui-loading{
+  animation: a 1s linear infinite;
 }
-.switch-num-tit{
-  font-size: 24rpx;
-  letter-spacing: 0.2em;
-  padding-left: 10rpx;
+.weui-none{
+  animation: none;
+}
+@keyframes a {
+  0% {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  }
+  to {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  }
 }

@@ -1,0 +1,5 @@
+
+<view class="content">
+    <ec-canvas id="mychart-one" canvas-id="mychart-multi-one" ec="{{ ecOne}}"></ec-canvas>
+    <ec-canvas id="mychart-two" canvas-id="mychart-multi-two" ec="{{ ecTwo }}"></ec-canvas>
+</view>

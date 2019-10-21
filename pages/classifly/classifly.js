@@ -1,4 +1,4 @@
-var util = require("../../utils/util.js");
+// var util = require("../../utils/util.js");
 Page({
 
   /**
@@ -42,26 +42,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var _userid = wx.getStorageSync("userid");
-    var _loginToken = wx.getStorageSync("loginToken");
-    var _devID = wx.getStorageSync("devID");
-    this.setData({
-      userid: _userid,
-      loginToken: _loginToken,
-      devID: _devID
-    })
-    var _that = this;
-    if (!_that.data.userid) {
-      _that.setData({
-        show: false
-      })
-    } else {
-      _that.setData({
-        show: true
-      })
-    }
+    //header头部
     wx.setNavigationBarTitle({
-      title: this.data.title
+      title: '控制'
     })
     wx.setNavigationBarColor({
       frontColor: '#ffffff',
@@ -71,40 +54,69 @@ Page({
         timingFunc: 'easeIn'
       }
     })
+    // var _userid = wx.getStorageSync("userid");
+    // var _loginToken = wx.getStorageSync("loginToken");
+    // var _devID = wx.getStorageSync("devID");
+    // this.setData({
+    //   userid: _userid,
+    //   loginToken: _loginToken,
+    //   devID: _devID
+    // })
+    // var _that = this;
+    // if (!_that.data.userid) {
+    //   _that.setData({
+    //     show: false
+    //   })
+    // } else {
+    //   _that.setData({
+    //     show: true
+    //   })
+    // }
+    // wx.setNavigationBarTitle({
+    //   title: this.data.title
+    // })
+    // wx.setNavigationBarColor({
+    //   frontColor: '#ffffff',
+    //   backgroundColor: '#3b82eb',
+    //   animation: {
+    //     duration: 400,
+    //     timingFunc: 'easeIn'
+    //   }
+    // })
 
-    var timestamp = Date.parse(new Date());
-    var date = new Date(timestamp);
-    //获取年份  
-    var Y = date.getFullYear();
-    //获取月份  
-    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
-    //获取当日日期 
-    var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-    console.log("当前时间：" + Y + '年' + M + '月' + D + '日');
-    this.setData({
-      y:Y,
-      m:M,
-      d:D
-    })
+    // var timestamp = Date.parse(new Date());
+    // var date = new Date(timestamp);
+    // //获取年份  
+    // var Y = date.getFullYear();
+    // //获取月份  
+    // var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+    // //获取当日日期 
+    // var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+    // console.log("当前时间：" + Y + '年' + M + '月' + D + '日');
+    // this.setData({
+    //   y:Y,
+    //   m:M,
+    //   d:D
+    // })
 
-    // 请求数据
-    if (_that.data.userid){
-      wx.request({
-        url: 'http://39.97.97.99:8080/v1/user/devicectrl',
-        method: "POST",
-        header: {
-          'content-type': _that.data.loginToken // 默认值
-        },
-        data: {
-          devID: _that.data.devID[0],
-          ctrltype:"val",
-          ctrlval:0
-        },
-        success(res){
-          console.log(res)
-        }
-      })
-    }
+    // // 请求数据
+    // if (_that.data.userid){
+    //   wx.request({
+    //     url: 'http://39.97.97.99:8080/v1/user/devicectrl',
+    //     method: "POST",
+    //     header: {
+    //       'content-type': _that.data.loginToken // 默认值
+    //     },
+    //     data: {
+    //       devID: _that.data.devID[0],
+    //       ctrltype:"val",
+    //       ctrlval:0
+    //     },
+    //     success(res){
+    //       console.log(res)
+    //     }
+    //   })
+    // }
   },
 
   /**

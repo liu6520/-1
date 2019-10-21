@@ -10,7 +10,7 @@ Page({
     or2:false,
     usertel:null,
     codetext:"获取验证码",
-    codeurl:"http://nc.wugui8.cn/api/rcode/",
+    url:'https://app.xiaomangny.com',
     cokecheck:false,
     getcode:false,         //判断是否点击发送，开关
     //登录验证
@@ -58,80 +58,80 @@ Page({
     }
   },
   // 发送验证码
-  getcokefn:function(){
-    var _that = this;
-    if(_that.data.getcode==true){
-        return false
-    }
-    if(_that.data.cokecheck == true){
+  // getcokefn:function(){
+  //   var _that = this;
+  //   if(_that.data.getcode==true){
+  //       return false
+  //   }
+  //   if(_that.data.cokecheck == true){
       // 数据请求
-      wx.request({
-        url: this.data.codeurl + this.data.usertel, // 仅为示例，并非真实的接口地址
-        method: "POST",
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        success(res) {
-          console.log(res.data)
-          var getcodesuccess = res.data.status
-          console.log(getcodesuccess)
-          var codetips = res.data.message
-          //获取验证码成功
-          if (getcodesuccess == 1) {  
-            wx.showToast({       //提示框
-              title: codetips,
-              icon: 'success',
-              duration: 2000
-            })
-          //改变发送按钮状态  
-          _that.setData({
-            getcode:true,
-            cokecheck:false
-          })
-        //开启倒计时
-        var getcodenum = 60;
-        var getcodetimer = setInterval(function () {
-          getcodenum--;
-          _that.setData({
-            codetext: getcodenum + "s后重试"
-          })
-          //倒计时完回复初始状态
-          if (getcodenum < 0) {
-            clearInterval(getcodetimer);
-            _that.setData({
-              codetext: "获取验证码",
-              getcode:false
-            })
-            var codeReg = /^(((13[0-9])|(14[579])|(15([0-3]|[5-9]))|(16[6])|(17[0135678])|(18[0-9])|(19[89]))\d{8})$/;
-            if (codeReg.test(_that.data.usertel)) {
-              _that.setData({
-                cokecheck:true
-              })
-            }
-            else {
-              _that.setData({
-                cokecheck: false
-              })
-            }
-          }
-        }, 1000)//倒计时速度
-      }
-      //失败提示框
-      if (getcodesuccess == 0){
-        console.log('失败')
-        wx.showToast({
-          title: codetips,
-          icon: 'none',
-          duration: 2000
-        })
-      }
-        },
-        fail() {
-          console.log(1)
-        }
-      })
-    }
-  },
+  //     wx.request({
+  //       url: this.data.codeurl + this.data.usertel, // 仅为示例，并非真实的接口地址
+  //       method: "POST",
+  //       header: {
+  //         "Content-Type": "application/x-www-form-urlencoded"
+  //       },
+  //       success(res) {
+  //         console.log(res.data)
+  //         var getcodesuccess = res.data.status
+  //         console.log(getcodesuccess)
+  //         var codetips = res.data.message
+  //         //获取验证码成功
+  //         if (getcodesuccess == 1) {  
+  //           wx.showToast({       //提示框
+  //             title: codetips,
+  //             icon: 'success',
+  //             duration: 2000
+  //           })
+  //         //改变发送按钮状态  
+  //         _that.setData({
+  //           getcode:true,
+  //           cokecheck:false
+  //         })
+  //       //开启倒计时
+  //       var getcodenum = 60;
+  //       var getcodetimer = setInterval(function () {
+  //         getcodenum--;
+  //         _that.setData({
+  //           codetext: getcodenum + "s后重试"
+  //         })
+  //         //倒计时完回复初始状态
+  //         if (getcodenum < 0) {
+  //           clearInterval(getcodetimer);
+  //           _that.setData({
+  //             codetext: "获取验证码",
+  //             getcode:false
+  //           })
+  //           var codeReg = /^(((13[0-9])|(14[579])|(15([0-3]|[5-9]))|(16[6])|(17[0135678])|(18[0-9])|(19[89]))\d{8})$/;
+  //           if (codeReg.test(_that.data.usertel)) {
+  //             _that.setData({
+  //               cokecheck:true
+  //             })
+  //           }
+  //           else {
+  //             _that.setData({
+  //               cokecheck: false
+  //             })
+  //           }
+  //         }
+  //       }, 1000)//倒计时速度
+  //     }
+  //     //失败提示框
+  //     if (getcodesuccess == 0){
+  //       console.log('失败')
+  //       wx.showToast({
+  //         title: codetips,
+  //         icon: 'none',
+  //         duration: 2000
+  //       })
+  //     }
+  //       },
+  //       fail() {
+  //         console.log(1)
+  //       }
+  //     })
+  //   }
+  // },
   //登录注册双向绑定
   logininput1Fn:function(e){
     this.setData({
@@ -143,11 +143,11 @@ Page({
       logininput2: e.detail.value
     })
   },
-  registerinput2Fn: function (e) {
-    this.setData({
-      registerinput2: e.detail.value
-    })
-  },
+  // registerinput2Fn: function (e) {
+  //   this.setData({
+  //     registerinput2: e.detail.value
+  //   })
+  // },
   registerinput3Fn: function (e) {
     this.setData({
       registerinput3: e.detail.value
@@ -160,68 +160,99 @@ Page({
   },
   //登录验证
   loginFn: function(){
+    wx.showToast({
+      title:"loading",
+      mask:true,
+      icon: 'loading',
+      duration: 2000
+    })
     var _that = this;
     var telReg = /^(((13[0-9])|(14[0-9])|(15([0-9]))|(16[0-9])|(17[0-9])|(18[0-9])|(19[0-9]))\d{8})$/;
     var passwordReg = /^[a-zA-Z0-9\~\!\@\#\$\%\^\&\*\_\+\{\}\:\"\|\<\>\?\-\=\;\'\\\,\.\/]{6,15}$/;
     
     if (this.data.loginCheck == true){
       wx.request({
-        url: 'http://39.97.97.99:8080/v1/user/login', //仅为示例，并非真实的接口地址
+        url: _that.data.url + `/v1/user/login`, //仅为示例，并非真实的接口地址
         method: "POST",
         data: {
-          account: 'test',
-          password: "123sedaew",
+          account: _that.data.logininput1,
+          password:_that.data.logininput2,
           account_type: "user"
         },
         header: {
           'content-type': 'application/json' // 默认值
         },
         success(res) {
-          console.log(res.data)
+          console.log(res)
           var loginYes = res.data.stateCode;
-          var logintips = "登录成功";
-          var userid = res.data.data.userId;    //userid
-          var loginToken = res.data.data.loginToken;
-          var devID = res.data.data.devID;
-          console.log(devID)
-          console.log(userid)
+          var message = res.data.message;
+          console.log(loginYes)
+          //var userid = res.data.data.userId;    //userid
+          //console.log(devID)
+          
           if(loginYes == 0){
-            wx.showToast({
-              title: logintips,
-              icon: 'none',
-              duration: 2000
-            })
-            // 保存用户id
-            wx.setStorageSync("loginToken", loginToken);
-            wx.setStorageSync("devID", devID);
-            var pages = getCurrentPages();//当前页面
-            if (pages.length > 1) {
-              var beforePage = pages[pages.length - 2];//获取上一个页面实例对象
-              beforePage.changeData();//触发父页面中的方法
-            }
             setTimeout(function(){
-              wx.navigateBack({
-                delta: 1
+              wx.showToast({
+                title: "登录成功",
+                icon: 'none',
+                duration: 2000
               })
-            },1000) 
+              // 保存用户id
+              var loginToken = res.data.data.loginToken;
+              var devID = res.data.data.devID;
+              wx.setStorageSync("loginToken", loginToken);
+              wx.setStorageSync("devID", devID);
+              var pages = getCurrentPages();//当前页面
+              if (pages.length > 1) {
+                var beforePage = pages[pages.length - 2];//获取上一个页面实例对象
+                beforePage.changeData();//触发父页面中的方法
+              }
+              setTimeout(function () {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }, 1000)
+            },2000) 
+          } else if(loginYes !== 0 && message == "account and password is not matched"){
+            setTimeout(function () {
+              wx.showToast({
+                title: "账号或密码错误",
+                icon: 'none',
+                duration: 2000
+              })
+            }, 2000)
+            return;
           }
           else{
+            setTimeout(function(){
+              wx.showToast({
+                title: "登录失败",
+                icon: 'none',
+                duration: 2000
+              })
+            },2000)
+          }
+        },
+        fail(err){
+          console.log(err);
+          setTimeout(function () {
             wx.showToast({
               title: "登录失败",
               icon: 'none',
               duration: 2000
             })
-          }
+          }, 2000)
         }
       })
     }
   },
   //注册验证
   registerFn:function(){
+    var loginToken = wx.getStorageSync('loginToken')
     var _that = this;
     var telReg = /^(((13[0-9])|(14[0-9])|(15([0-9]))|(16[0-9])|(17[0-9])|(18[0-9])|(19[0-9]))\d{8})$/;
     var passwordReg = /^[a-zA-Z0-9\~\!\@\#\$\%\^\&\*\_\+\{\}\:\"\|\<\>\?\-\=\;\'\\\,\.\/]{6,15}$/;
-    if (!telReg.test(_that.data.usertel)) {
+    if (!_that.data.usertel) {
       wx.showToast({
         title: "电话号码有误",
         icon: 'none',
@@ -232,17 +263,17 @@ Page({
       })
       return false
     }
-    if (this.data.registerinput2 == ""){
-      wx.showToast({
-        title: "验证码有误",
-        icon: 'none',
-        duration: 2000
-      })
-      this.setData({
-        registerCheck: false
-      })
-      return false
-    }
+    // if (this.data.registerinput2 == ""){
+    //   wx.showToast({
+    //     title: "验证码有误",
+    //     icon: 'none',
+    //     duration: 2000
+    //   })
+    //   this.setData({
+    //     registerCheck: false
+    //   })
+    //   return false
+    //}
     if (!passwordReg.test(this.data.registerinput3)){
       wx.showToast({
         title: "密码输入有误",
@@ -267,24 +298,24 @@ Page({
     }
     if (this.data.registerCheck == true){
       wx.request({
-        url: 'http://nc.wugui8.cn/api/reg', //仅为示例，并非真实的接口地址
+        url: 'https://app.xiaomangny.com:8080/v1/user/useradd', //仅为示例，并非真实的接口地址
         method: "POST",
         data: {
-          phone: _that.data.usertel,
-          password: _that.data.registerinput3,
-          code: _that.data.registerinput2,
-          uid: _that.data.uid
+          UserName: _that.data.usertel,
+          Passwd: _that.data.registerinput3,
+          IsAdmin:0
         },
         header: {
-          'content-type': 'application/json' // 默认值
+          'content-type': 'application/json', // 默认值
+          LoginToken:loginToken
         },
         success(res){
           console.log(res.data)
-          var registerYes = res.data.status;
+          var registerYes = res.data.stateCode;
           var registertips = res.data.message;
-          if ( registerYes == 1) {
+          if ( registerYes == 0) {
             wx.showToast({
-              title: registertips,
+              title: "添加成功",
               icon: 'none',
               duration: 2000
             })
@@ -294,7 +325,7 @@ Page({
           }
           else{
             wx.showToast({
-              title: registertips,
+              title: "添加失败",
               icon: 'none',
               duration: 2000
             })
@@ -307,7 +338,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: '登录'
+    })
+    wx.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: '#3b82eb',
+      animation: {
+        duration: 400,
+        timingFunc: 'easeIn'
+      }
+    })
   },
 
   /**
